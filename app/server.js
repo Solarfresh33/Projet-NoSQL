@@ -42,7 +42,7 @@ async function start() {
   await mongo.connect();
   await redis.connect();
   await neo4j.verify();
-  await pg.query('SELECT 1');
+  await pg.waitForReady();
   console.log('[app] connecté aux 4 bases (postgres, mongo, redis, neo4j)');
 
   // Peuplement de Neo4j + Redis (Postgres/Mongo sont auto-seedés par Docker)

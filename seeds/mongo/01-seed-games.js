@@ -94,7 +94,7 @@ db.games.insertMany([
     genres: ['Metroidvania', 'Action', 'Platformer'],
     platforms: ['PC', 'Switch', 'PS4', 'Xbox One'],
     pegi: 7,
-    description: 'Explorez un royaume d''insectes en ruine.',
+    description: 'Explorez un royaume d\'insectes en ruine.',
     cover: 'https://images.gameshelf.dev/hollowknight.jpg',
     tags: ['metroidvania', 'atmospheric', 'difficult']
   },
@@ -108,7 +108,7 @@ db.games.insertMany([
     genres: ['Open World', 'Action', 'Adventure'],
     platforms: ['PC', 'PS4', 'Xbox One'],
     pegi: 18,
-    description: 'L''Amérique de 1899 vue par les yeux d''Arthur Morgan.',
+    description: 'L\'Amérique de 1899 vue par les yeux d\'Arthur Morgan.',
     cover: 'https://images.gameshelf.dev/rdr2.jpg',
     onlineMode: { name: 'Red Dead Online', active: false },
     tags: ['western', 'story-rich', 'realistic'],

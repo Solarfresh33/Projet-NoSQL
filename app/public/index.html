@@ -62,8 +62,9 @@
   </main>
 
   <!-- Modale fiche jeu -->
-  <div id="modal" class="modal hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+  <div id="modal" class="modal hidden" onclick="if(event.target===this)closeModal()">
     <div class="modal-card" id="modalCard"></div>
+    <button class="modal-close" onclick="closeModal()" aria-label="Fermer">✕</button>
   </div>
 
   <script src="/js/app.js"></script>

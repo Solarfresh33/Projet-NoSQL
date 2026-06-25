@@ -51,10 +51,13 @@ async function loadGenres() {
 $('#search').oninput = debounce(loadGames, 300);
 $('#genreFilter').onchange = loadGames;
 
+function closeModal() { $('#modal').classList.add('hidden'); }
+
 async function openGame(id) {
-  const { game, source, views } = await api('/api/games/' + id);
-  const reviews = await api('/api/reviews/game/' + id);
-  $('#modalCard').innerHTML = `
+  try {
+    const { game, source, views } = await api('/api/games/' + id);
+    const reviews = await api('/api/reviews/game/' + id);
+    $('#modalCard').innerHTML = `
     <h2>${game.title} <span class="source-pill">via ${source}</span></h2>
     <p>${game.description || ''}</p>
     <dl class="kv">
@@ -71,8 +74,15 @@ async function openGame(id) {
         <span class="who">${r.username}</span> ${'★'.repeat(Math.round(r.rating))}
         ${r.liked ? '❤️' : ''}<br>${r.body || ''}</li></div>`).join('')
       : '<p style="color:var(--muted)">Aucune review.</p>'}`;
-  $('#modal').classList.remove('hidden');
+    $('#modal').classList.remove('hidden');
+  } catch (err) {
+    $('#modalCard').innerHTML = `<p style="color:var(--muted)">Impossible de charger cette fiche (${err.message}).</p>`;
+    $('#modal').classList.remove('hidden');
+  }
 }
+
+// Fermeture de la modale : bouton ✕, touche Échap, clic sur le fond
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
 // --- Vue Classements (Redis) ---
 async function loadLeaderboard() {
