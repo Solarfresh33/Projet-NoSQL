@@ -1,4 +1,4 @@
-# 🎮 GameShelf — Persistance polyglotte (Projet NoSQL B3)
+# 🎮 GameShelf : Persistance polyglotte (Projet NoSQL B3)
 
 **GameShelf** est un « Letterboxd pour les jeux vidéo » : on y consulte des
 fiches de jeux, on les note, on écrit des critiques, on construit des listes,
